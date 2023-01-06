@@ -18,6 +18,11 @@ const app = Vue.createApp({
             }
         },
     },
+    computed: {
+        boxAClasses() {
+            return { currentBox: this.boxA };
+        },
+    },
 });
 
 app.mount("#styling");
