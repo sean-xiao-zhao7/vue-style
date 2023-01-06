@@ -41,6 +41,14 @@ button {
     cursor: pointer;
 }
 
+button#button-change.change1 {
+    background-color: #a0c04f;
+}
+
+button#button-change.change2 {
+    background-color: #c04fa8;
+}
+
 button:active {
     background-color: #46ac7e;
 }
@@ -51,4 +59,11 @@ input {
     padding: 0.5rem 1rem;
     text-align: center;
     border: 1px solid #4fc08d;
+}
+
+div {
+    background-color: #4fc08d;
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
 }

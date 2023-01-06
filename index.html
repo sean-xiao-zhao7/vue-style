@@ -17,10 +17,19 @@
             <h1>A4</h1>
         </header>
         <section id="styling">
-            <input />
-            <button>Change</button>
-            <input />
-            <button>Change inline</button>
+            <input
+                id="input1"
+                placeholder="Enter class or click button without entering"
+            />
+            <button
+                id="button-change"
+                @click="changeButtonStyle"
+                :class="[buttonChangeClasses]"
+            >
+                Change style
+            </button>
+            <input id="input2" placeholder="Enter inline effect" />
+            <div id="button-change-inline">Inline effect</div>
         </section>
     </body>
 </html>
