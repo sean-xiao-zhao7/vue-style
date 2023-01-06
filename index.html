@@ -17,8 +17,11 @@
             <h1>Goals</h1>
         </header>
         <section id="styling">
-            <input id="input1" placeholder="Add a new goal" />
-            <button id="button-change">Submit</button>
+            <input id="input1" placeholder="Add a new goal" v-model="newGoal" />
+            <button id="button-change" @click="addGoal">Submit</button>
+            <ul v-show="goals.length > 0">
+                <li v-for="goal in goals">{{goal}}</li>
+            </ul>
         </section>
     </body>
 </html>
