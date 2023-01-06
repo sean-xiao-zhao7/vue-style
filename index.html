@@ -20,7 +20,7 @@
             <input id="input1" placeholder="Add a new goal" v-model="newGoal" />
             <button id="button-change" @click="addGoal">Submit</button>
             <ul v-show="goals.length > 0">
-                <li v-for="goal in goals">{{goal}}</li>
+                <li v-for="goal in goals" key="goal">{{goal}}</li>
             </ul>
         </section>
     </body>
