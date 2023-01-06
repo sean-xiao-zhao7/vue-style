@@ -14,14 +14,25 @@
     </head>
     <body>
         <header>
-            <h1>Goals</h1>
+            <h1>Monsters</h1>
         </header>
         <section id="styling">
-            <input id="input1" placeholder="Add a new goal" v-model="newGoal" />
-            <button id="button-change" @click="addGoal">Submit</button>
-            <ul v-show="goals.length > 0">
-                <li v-for="goal in goals" key="goal">{{goal}}</li>
-            </ul>
+            <button id="button-change" @click="attack">Attack</button>
+            <button id="button-change1" @click="specialAttack">
+                Special attack
+            </button>
+            <button id="button-change2" @click="heal">Heal</button>
+            <button id="button-change3" @click="skip">Skip</button>
+            <div id="health-area">
+                <div>
+                    <h1>Monster</h1>
+                    <div></div>
+                </div>
+                <div>
+                    <h1>Human</h1>
+                    <div></div>
+                </div>
+            </div>
         </section>
     </body>
 </html>

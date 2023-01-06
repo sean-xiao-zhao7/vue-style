@@ -1,12 +1,12 @@
 const app = Vue.createApp({
     data() {
-        return { newGoal: "", goals: [] };
+        return {};
     },
     methods: {
-        addGoal() {
-            this.goals.push(this.newGoal);
-            this.newGoal = "";
-        },
+        attack() {},
+        specialAttack() {},
+        heal() {},
+        skip() {},
     },
 });
 
