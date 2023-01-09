@@ -7,8 +7,8 @@ const app = Vue.createApp({
         return {
             monsterHealth: 100,
             playerHealth: 100,
-            monsterAttack: 50,
-            playerAttack: 10,
+            monsterAttackValue: 50,
+            playerAttackValue: 10,
             monsterAttackExtra: 10,
             playerAttackExtra: 10,
             playerSpecialAttackExtra: 50,
@@ -17,17 +17,18 @@ const app = Vue.createApp({
     methods: {
         attack() {
             this.monsterHealth -= randomAttack(
-                this.playerAttack,
-                playerAttackExtra
+                this.playerAttackValue,
+                this.playerAttackExtra
             );
             if (this.monsterHealth < 0) {
                 this.monsterHealth = 0;
             }
+            this.monsterAttack();
         },
         specialAttack() {
             this.monsterHealth -= randomAttack(
-                this.playerAttack,
-                playerSpecialAttackExtra
+                this.playerAttackValue,
+                this.playerSpecialAttackExtra
             );
             if (this.monsterHealth < 0) {
                 this.monsterHealth = 0;
@@ -37,8 +38,8 @@ const app = Vue.createApp({
         skip() {},
         monsterAttack() {
             this.playerHealth -= randomAttack(
-                this.monsterAttack,
-                monsterAttackExtra
+                this.monsterAttackValue,
+                this.monsterAttackExtra
             );
             if (this.playerHealth < 0) {
                 this.playerHealth = 0;
