@@ -46,6 +46,14 @@ const app = Vue.createApp({
             }
         },
     },
+    computed: {
+        monsterHealthStyle() {
+            return { width: this.monsterHealth + "%" };
+        },
+        playerHealthStyle() {
+            return { width: this.playerHealth + "%" };
+        },
+    },
 });
 
 app.mount("#styling");
