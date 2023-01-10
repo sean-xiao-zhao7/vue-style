@@ -81,3 +81,9 @@ div#health-area h1 {
 div#health-area > div {
     background-color: white;
 }
+
+div.health-bar {
+    height: 2rem;
+    padding: 0;
+    transition: width 0.2s;
+}
