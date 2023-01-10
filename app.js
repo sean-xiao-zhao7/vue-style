@@ -12,19 +12,39 @@ const app = Vue.createApp({
             monsterAttackExtra: 10,
             playerAttackExtra: 10,
             playerSpecialAttackExtra: 50,
+            message: "",
         };
     },
     methods: {
         attack() {
-            this.monsterHealth -= randomAttack(
+            this.message = "";
+            const attackVal = randomAttack(
                 this.playerAttackValue,
                 this.playerAttackExtra
             );
+            this.monsterHealth -= attackVal;
             if (this.monsterHealth < 0) {
                 this.monsterHealth = 0;
             }
+            this.message =
+                "Human attacked the monster for " + attackVal + " damage.";
             this.monsterAttack();
         },
+
+        monsterAttack() {
+            const attackVal = randomAttack(
+                this.monsterAttackValue,
+                this.monsterAttackExtra
+            );
+            this.playerHealth -= attackVal;
+            if (this.playerHealth < 0) {
+                this.playerHealth = 0;
+            }
+            this.message += "\n";
+            this.message +=
+                "The monster attacked for " + attackVal + " damage.";
+        },
+
         specialAttack() {
             this.monsterHealth -= randomAttack(
                 this.playerAttackValue,
@@ -34,17 +54,10 @@ const app = Vue.createApp({
                 this.monsterHealth = 0;
             }
         },
+
         heal() {},
+
         skip() {},
-        monsterAttack() {
-            this.playerHealth -= randomAttack(
-                this.monsterAttackValue,
-                this.monsterAttackExtra
-            );
-            if (this.playerHealth < 0) {
-                this.playerHealth = 0;
-            }
-        },
     },
     computed: {
         monsterHealthStyle() {

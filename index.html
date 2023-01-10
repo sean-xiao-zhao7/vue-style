@@ -33,6 +33,10 @@
                     <div :style="playerHealthStyle" class="health-bar"></div>
                 </div>
             </div>
+            <div id="message-area">
+                {{message}}
+                <p v-if="playerHealth <= 0">Human is dead.</p>
+            </div>
         </section>
     </body>
 </html>

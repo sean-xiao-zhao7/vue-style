@@ -87,3 +87,9 @@ div.health-bar {
     padding: 0;
     transition: width 0.2s;
 }
+
+div#message-area {
+    background-color: white;
+    padding: 3rem;
+    color: #4fc08d;
+}
