@@ -1,3 +1,5 @@
+import { Player } from "./model/Player.js";
+
 const randomAttack = (baseValue, extraValue) => {
     return Math.floor(Math.random() * extraValue) + baseValue;
 };
@@ -13,6 +15,12 @@ const app = Vue.createApp({
             playerAttackExtra: 10,
             playerSpecialAttackExtra: 50,
             message: "",
+            players: [
+                new Player(1, "Player 1", "test1@test.com", "123-123-1411"),
+                new Player(2, "Player 2", "test2@test.com", "123-123-1412"),
+                new Player(3, "Player 3", "test3@test.com", "123-123-1413"),
+                new Player(4, "Player 4", "test4@test.com", "123-123-1414"),
+            ],
         };
     },
     methods: {
