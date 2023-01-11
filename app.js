@@ -16,6 +16,10 @@ const app = Vue.createApp({
         };
     },
     methods: {
+        onTextChange(event) {
+            this.message = this.$refs.textInput1;
+        },
+
         attack() {
             this.message = "";
             const attackVal = randomAttack(
