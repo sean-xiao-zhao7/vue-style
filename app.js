@@ -87,4 +87,18 @@ const app = Vue.createApp({
     },
 });
 
+app.component("player-details", {
+    template: `
+    <h1>Player</h1>
+    `,
+    data() {
+        return { showDetails: false };
+    },
+    methods: {
+        toggleDetails() {
+            this.showDetails = !this.showDetails;
+        },
+    },
+});
+
 app.mount("#styling");

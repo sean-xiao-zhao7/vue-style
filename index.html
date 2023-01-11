@@ -38,6 +38,7 @@
                 {{message}}
                 <p v-if="playerHealth <= 0">Human is dead.</p>
             </div>
+            <player-details v-for="player in players"></player-details>
         </section>
     </body>
 </html>
