@@ -71,6 +71,12 @@ const app = Vue.createApp({
             return { width: this.playerHealth + "%" };
         },
     },
+    beforeCreate() {
+        console.log("test");
+    },
+    beforeUpdate() {
+        console.log("test 2");
+    },
 });
 
 app.mount("#styling");
