@@ -122,7 +122,9 @@ export default {
     </section>
 </template>
 
-<style scoped>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+
 * {
     box-sizing: border-box;
 }
