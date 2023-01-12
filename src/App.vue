@@ -1,85 +1,221 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import PlayerDetails from "./components/PlayerDetails.vue";
+import { Player } from "./model/Player.js";
+
+export default {
+    components: {
+        PlayerDetails,
+    },
+    data() {
+        return {
+            monsterHealth: 100,
+            playerHealth: 100,
+            monsterAttackValue: 50,
+            playerAttackValue: 10,
+            monsterAttackExtra: 10,
+            playerAttackExtra: 10,
+            playerSpecialAttackExtra: 50,
+            message: "",
+            players: [
+                new Player(1, "Player 1", "test1@test.com", "123-123-1411"),
+                new Player(2, "Player 2", "test2@test.com", "123-123-1412"),
+                new Player(3, "Player 3", "test3@test.com", "123-123-1413"),
+                new Player(4, "Player 4", "test4@test.com", "123-123-1414"),
+            ],
+        };
+    },
+    methods: {
+        onTextChange(event) {
+            this.message = this.$refs.textInput1;
+        },
+
+        attack() {
+            this.message = "";
+            const attackVal = this.randomAttack(
+                this.playerAttackValue,
+                this.playerAttackExtra
+            );
+            this.monsterHealth -= attackVal;
+            if (this.monsterHealth < 0) {
+                this.monsterHealth = 0;
+            }
+            this.message =
+                "Human attacked the monster for " + attackVal + " damage.";
+            this.monsterAttack();
+        },
+
+        monsterAttack() {
+            const attackVal = this.randomAttack(
+                this.monsterAttackValue,
+                this.monsterAttackExtra
+            );
+            this.playerHealth -= attackVal;
+            if (this.playerHealth < 0) {
+                this.playerHealth = 0;
+            }
+            this.message += "\n";
+            this.message +=
+                "The monster attacked for " + attackVal + " damage.";
+        },
+
+        specialAttack() {
+            this.monsterHealth -= this.randomAttack(
+                this.playerAttackValue,
+                this.playerSpecialAttackExtra
+            );
+            if (this.monsterHealth < 0) {
+                this.monsterHealth = 0;
+            }
+        },
+
+        heal() {},
+
+        skip() {},
+        randomAttack(baseValue, extraValue) {
+            return Math.floor(Math.random() * extraValue) + baseValue;
+        },
+    },
+    computed: {
+        monsterHealthStyle() {
+            return { width: this.monsterHealth + "%" };
+        },
+        playerHealthStyle() {
+            return { width: this.playerHealth + "%" };
+        },
+    },
+    beforeCreate() {
+        console.log("test");
+    },
+    beforeUpdate() {
+        console.log("test 2");
+    },
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <header>
+        <h1>Monsters</h1>
+    </header>
+    <section id="styling">
+        <input type="text" ref="textInput1" />
+        <button id="button-change" @click="attack">Attack</button>
+        <button id="button-change1" @click="specialAttack">
+            Special attack
+        </button>
+        <button id="button-change2" @click="heal">Heal</button>
+        <button id="button-change3" @click="skip">Skip</button>
+        <div id="health-area">
+            <div>
+                <h1>Monster</h1>
+                <div :style="monsterHealthStyle" class="health-bar"></div>
+            </div>
+            <div>
+                <h1>Human</h1>
+                <div :style="playerHealthStyle" class="health-bar"></div>
+            </div>
+        </div>
+        <div id="message-area">
+            {{ message }}
+            <p v-if="playerHealth <= 0">Human is dead.</p>
+        </div>
+        <PlayerDetails v-for="player in players" />
+    </section>
 </template>
 
 <style scoped>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Jost", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 3rem;
+    padding: 1rem;
+    background-color: #4fc08d;
+    color: white;
+    text-align: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+#styling {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 3rem;
+    border-radius: 10px;
+    padding: 3rem 30%;
+    text-align: center;
+
+    /* flex */
+    display: grid;
+    grid-row-gap: 1rem;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+button {
+    background-color: #4fc08d;
+    border: 0;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+button#button-change.change1 {
+    background-color: #a0c04f;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+button#button-change.change2 {
+    background-color: #c04fa8;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+button:active {
+    background-color: #46ac7e;
 }
 
-nav a:first-of-type {
-  border: 0;
+input {
+    font-size: 1.2rem;
+    font-weight: normal;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border: 1px solid #4fc08d;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+div {
+    background-color: #4fc08d;
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+div#health-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+div#health-area h1 {
+    color: #4fc08d;
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+div#health-area > div {
+    background-color: white;
+}
 
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+div.health-bar {
+    height: 2rem;
+    padding: 0;
+    transition: width 0.2s;
+}
+
+div#message-area {
+    background-color: white;
+    padding: 3rem;
+    color: #4fc08d;
 }
 </style>
