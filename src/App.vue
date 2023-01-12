@@ -1,6 +1,6 @@
 <script>
 import PlayerDetails from "./components/PlayerDetails.vue";
-import { Player } from "./model/Player.js";
+import { Player } from "./models/Player.js";
 
 export default {
     components: {
