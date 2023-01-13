@@ -118,7 +118,7 @@ export default {
             {{ message }}
             <p v-if="playerHealth <= 0">Human is dead.</p>
         </div>
-        <PlayerDetails v-for="player in players" />
+        <PlayerDetails v-for="player in players" :player="player" />
     </section>
 </template>
 

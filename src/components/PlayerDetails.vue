@@ -1,5 +1,6 @@
 <script>
 export default {
+    props: ["player"],
     data() {
         return { showDetails: false };
     },
@@ -12,5 +13,5 @@ export default {
 </script>
 
 <template>
-    <h1>Player</h1>
+    <h1>{{ player.name }}</h1>
 </template>
