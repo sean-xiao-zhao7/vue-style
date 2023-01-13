@@ -1,6 +1,14 @@
 <script>
+import { Player } from "../models/Player";
+
 export default {
-    props: ["player"],
+    emits: ["toggle-selected"],
+    props: {
+        player: {
+            type: Player,
+            required: true,
+        },
+    },
     data() {
         return { showDetails: false };
     },
@@ -8,10 +16,14 @@ export default {
         toggleDetails() {
             this.showDetails = !this.showDetails;
         },
+        toggleSelected() {
+            this.$emit("toggle-selected", this.player.id);
+        },
     },
 };
 </script>
 
 <template>
     <h1>{{ player.name }}</h1>
+    <h2>{{ player.phone }}</h2>
 </template>

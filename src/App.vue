@@ -74,6 +74,9 @@ export default {
         randomAttack(baseValue, extraValue) {
             return Math.floor(Math.random() * extraValue) + baseValue;
         },
+        toggleSelectedHandler(id) {
+            console.log(id);
+        },
     },
     computed: {
         monsterHealthStyle() {
@@ -82,12 +85,6 @@ export default {
         playerHealthStyle() {
             return { width: this.playerHealth + "%" };
         },
-    },
-    beforeCreate() {
-        console.log("test");
-    },
-    beforeUpdate() {
-        console.log("test 2");
     },
 };
 </script>
@@ -118,7 +115,12 @@ export default {
             {{ message }}
             <p v-if="playerHealth <= 0">Human is dead.</p>
         </div>
-        <PlayerDetails v-for="player in players" :player="player" />
+        <PlayerDetails
+            v-for="player in players"
+            :player="player"
+            :key="player.id"
+            @toggle-selected="toggleSelectedHandler"
+        />
     </section>
 </template>
 
