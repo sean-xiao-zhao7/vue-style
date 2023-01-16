@@ -1,5 +1,5 @@
 export class Player {
-    constructor(id, name, email, phone) {
+    constructor(id, name, phone, email) {
         this.id = id;
         this.name = name;
         this.phone = phone;
