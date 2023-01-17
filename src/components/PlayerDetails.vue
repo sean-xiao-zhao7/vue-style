@@ -24,6 +24,24 @@ export default {
 </script>
 
 <template>
-    <h1>{{ player.name }}</h1>
-    <h2>{{ player.phone }}</h2>
+    <section>
+        <h2>{{ player.name }}</h2>
+        <h2>{{ player.phone }}</h2>
+        <button class="delete">X</button>
+    </section>
 </template>
+
+<style scoped>
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    align-items: center;
+    justify-items: center;
+}
+button.delete {
+    background-color: red;
+    width: 50%;
+    height: 50%;
+}
+</style>
