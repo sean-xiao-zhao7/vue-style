@@ -70,9 +70,6 @@ export default {
                 this.monsterHealth = 0;
             }
         },
-
-        heal() {},
-
         addNewPlayerToggle() {
             this.showAddPlayer = !this.showAddPlayer;
         },
@@ -89,8 +86,13 @@ export default {
         randomAttack(baseValue, extraValue) {
             return Math.floor(Math.random() * extraValue) + baseValue;
         },
+        // callbacks
         toggleSelectedHandler(id) {
             console.log(id);
+        },
+        deletePlayerHandler(id) {
+            const targetIndex = this.players.indexOf((p) => p.id === id);
+            this.players.splice(targetIndex, 1);
         },
     },
     computed: {
@@ -114,7 +116,6 @@ export default {
         <button id="button-change1" @click="specialAttack">
             Special attack
         </button>
-        <button id="button-change2" @click="heal">Heal</button>
         <button id="button-change3" @click="addNewPlayerToggle">
             Add new player
         </button>
@@ -141,6 +142,7 @@ export default {
             :player="player"
             :key="player.id"
             @toggle-selected="toggleSelectedHandler"
+            @delete-player="deletePlayerHandler"
         />
     </section>
 </template>
@@ -181,6 +183,7 @@ header {
     grid-row-gap: 1rem;
 }
 
+/* button */
 button {
     background-color: #4fc08d;
     border: 0;
@@ -190,19 +193,20 @@ button {
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
-
 button#button-change.change1 {
     background-color: #a0c04f;
 }
-
 button#button-change.change2 {
     background-color: #c04fa8;
 }
-
 button:active {
     background-color: #46ac7e;
 }
+button:hover {
+    transform: translateX(1px) translateY(1px);
+}
 
+/* form inputs */
 input {
     font-size: 1.2rem;
     font-weight: normal;
@@ -211,6 +215,7 @@ input {
     border: 1px solid #4fc08d;
 }
 
+/* divs */
 div {
     background-color: #4fc08d;
     color: white;

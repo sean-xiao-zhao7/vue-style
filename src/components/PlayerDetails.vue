@@ -2,7 +2,7 @@
 import { Player } from "../models/Player";
 
 export default {
-    emits: ["toggle-selected"],
+    emits: ["toggle-selected", "delete-player"],
     props: {
         player: {
             type: Player,
@@ -19,6 +19,9 @@ export default {
         toggleSelected() {
             this.$emit("toggle-selected", this.player.id);
         },
+        deletePlayer() {
+            this.$emit("delete-player", this.player.id);
+        },
     },
 };
 </script>
@@ -27,7 +30,7 @@ export default {
     <section>
         <h2>{{ player.name }}</h2>
         <h2>{{ player.phone }}</h2>
-        <button class="delete">X</button>
+        <button class="delete" @click="deletePlayer">X</button>
     </section>
 </template>
 
@@ -38,10 +41,16 @@ section {
     grid-column-gap: 2rem;
     align-items: center;
     justify-items: center;
+    border-bottom: solid 1px #ccc;
 }
 button.delete {
     background-color: red;
     width: 50%;
     height: 50%;
+}
+
+button:active,
+button:hover {
+    transform: translateX(1px) translateY(1px);
 }
 </style>
