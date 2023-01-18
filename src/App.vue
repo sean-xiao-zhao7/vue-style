@@ -3,11 +3,14 @@ import PlayerDetails from "./components/PlayerDetails.vue";
 import AddNewPlayer from "./components/AddNewPlayer.vue";
 
 import { Player } from "./models/Player.js";
+import { Resource } from "./models/Resource.js";
+import ResourceDetails from "./components/ResourceDetails.vue";
 
 export default {
     components: {
         PlayerDetails,
         AddNewPlayer,
+        ResourceDetails,
     },
     data() {
         return {
@@ -26,6 +29,33 @@ export default {
                 new Player(4, "Player 4", "test4@test.com", "123-123-1414"),
             ],
             showAddPlayer: false,
+            resources: [
+                new Resource(
+                    "Book",
+                    "A book to read.",
+                    "https://www.theglobeandmail.com/arts/books/reviews/article-new-bill-morneau-book-offers-insiders-account-of-first-five-years-of/"
+                ),
+                new Resource(
+                    "Website",
+                    "A website to surf.",
+                    "https://en.wikipedia.org/wiki/Website"
+                ),
+                new Resource(
+                    "Food",
+                    "To be consumed.",
+                    "https://www.facebook.com/Wallys-Family-Restaurant-223907720231/"
+                ),
+                new Resource(
+                    "Electricity",
+                    "To power others.",
+                    "https://www.reuters.com/business/energy/electricity-constraints-force-canadas-first-lng-terminal-delay-renewable-shift-2023-01-16/"
+                ),
+                new Resource(
+                    "Water",
+                    "To fuel with liquid.",
+                    "http://www.mierswatercentre.com/"
+                ),
+            ],
         };
     },
     methods: {
@@ -95,6 +125,10 @@ export default {
             const targetIndex = this.players.indexOf((p) => p.id === id);
             this.players.splice(targetIndex, 1);
         },
+        deleteResourceHandler(id) {
+            const targetIndex = this.resources.indexOf((p) => p.id === id);
+            this.resources.splice(targetIndex, 1);
+        },
     },
     computed: {
         monsterHealthStyle() {
@@ -142,6 +176,12 @@ export default {
             @toggle-selected="toggleSelectedHandler"
             @delete-player="deletePlayerHandler"
         />
+        <resource-details
+            v-for="resource in resources"
+            :resource="resource"
+            :key="resource.id"
+            @delete-resource="deleteResourceHandler"
+        ></resource-details>
     </custom-layout>
 </template>
 
@@ -200,6 +240,15 @@ button#button-change.change2 {
 button:active {
     background-color: #46ac7e;
 }
+button:hover {
+    transform: translateX(1px) translateY(1px);
+}
+button.delete {
+    background-color: red;
+    width: 50%;
+    height: 50%;
+}
+button:active,
 button:hover {
     transform: translateX(1px) translateY(1px);
 }

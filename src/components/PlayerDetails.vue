@@ -43,14 +43,4 @@ section {
     justify-items: center;
     border-bottom: solid 1px #ccc;
 }
-button.delete {
-    background-color: red;
-    width: 50%;
-    height: 50%;
-}
-
-button:active,
-button:hover {
-    transform: translateX(1px) translateY(1px);
-}
 </style>
