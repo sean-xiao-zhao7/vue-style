@@ -1,6 +1,7 @@
 <script>
 import PlayerDetails from "./components/PlayerDetails.vue";
 import AddNewPlayer from "./components/AddNewPlayer.vue";
+
 import { Player } from "./models/Player.js";
 
 export default {
@@ -107,10 +108,7 @@ export default {
 </script>
 
 <template>
-    <header>
-        <h1>Monsters</h1>
-    </header>
-    <section id="styling">
+    <custom-layout>
         <input type="text" ref="textInput1" />
         <button id="button-change" @click="attack">Attack</button>
         <button id="button-change1" @click="specialAttack">
@@ -144,7 +142,7 @@ export default {
             @toggle-selected="toggleSelectedHandler"
             @delete-player="deletePlayerHandler"
         />
-    </section>
+    </custom-layout>
 </template>
 
 <style>
