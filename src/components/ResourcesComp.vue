@@ -45,10 +45,10 @@ export default {
 </script>
 
 <template>
-    <resource-details
+    <ResourceDetails
         v-for="resource in resources"
         :resource="resource"
         :key="resource.id"
         @delete-resource="deleteResourceHandler"
-    ></resource-details>
+    ></ResourceDetails>
 </template>

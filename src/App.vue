@@ -5,15 +5,28 @@ export default {
             currentComp: "resources-comp",
         };
     },
+    methods: {
+        switchComp(nextComp) {
+            this.currentComp = nextComp;
+        },
+    },
 };
 </script>
 
 <template>
-    <custom-layout>
-        <keep-alive>
+    <header>
+        <h1>Learning resources</h1>
+    </header>
+    <nav>
+        <a href="#" @click="switchComp('resources-comp')">Resources</a>
+        <a href="#" @click="switchComp('monster-comp')">Monster</a>
+        <a href="#" @click="switchComp('people-comp')">People</a>
+    </nav>
+    <section id="styling">
+        <KeepAlive>
             <component :is="currentComp"></component>
-        </keep-alive>
-    </custom-layout>
+        </KeepAlive>
+    </section>
 </template>
 
 <style>
