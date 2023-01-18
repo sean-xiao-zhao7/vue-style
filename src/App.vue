@@ -1,13 +1,17 @@
 <script>
+const compTitles = ["Learning resources", "Monster", "People"];
+
 export default {
     data() {
         return {
             currentComp: "resources-comp",
+            currentCompTitle: compTitles[0],
         };
     },
     methods: {
-        switchComp(nextComp) {
+        switchComp(nextComp, titleIndex) {
             this.currentComp = nextComp;
+            this.currentCompTitle = compTitles[titleIndex];
         },
     },
 };
@@ -15,24 +19,24 @@ export default {
 
 <template>
     <header>
-        <h1>Learning resources</h1>
+        <h1>{{ currentCompTitle }}</h1>
     </header>
     <nav>
         <a
             href="#"
-            @click="switchComp('resources-comp')"
+            @click="switchComp('resources-comp', 0)"
             :class="{ 'current-comp': currentComp === 'resources-comp' }"
             >Resources</a
         >
         <a
             href="#"
-            @click="switchComp('monster-comp')"
+            @click="switchComp('monster-comp', 1)"
             :class="{ 'current-comp': currentComp === 'monster-comp' }"
             >Monster</a
         >
         <a
             href="#"
-            @click="switchComp('people-comp')"
+            @click="switchComp('people-comp', 2)"
             :class="{ 'current-comp': currentComp === 'people-comp' }"
             >People</a
         >
