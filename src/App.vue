@@ -18,9 +18,24 @@ export default {
         <h1>Learning resources</h1>
     </header>
     <nav>
-        <a href="#" @click="switchComp('resources-comp')">Resources</a>
-        <a href="#" @click="switchComp('monster-comp')">Monster</a>
-        <a href="#" @click="switchComp('people-comp')">People</a>
+        <a
+            href="#"
+            @click="switchComp('resources-comp')"
+            :class="{ 'current-comp': currentComp === 'resources-comp' }"
+            >Resources</a
+        >
+        <a
+            href="#"
+            @click="switchComp('monster-comp')"
+            :class="{ 'current-comp': currentComp === 'monster-comp' }"
+            >Monster</a
+        >
+        <a
+            href="#"
+            @click="switchComp('people-comp')"
+            :class="{ 'current-comp': currentComp === 'people-comp' }"
+            >People</a
+        >
     </nav>
     <section id="styling">
         <KeepAlive>
@@ -63,6 +78,27 @@ header {
     /* flex */
     display: grid;
     grid-row-gap: 1rem;
+}
+
+/* nav */
+#app > nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 30rem;
+    align-items: center;
+    justify-items: center;
+}
+
+#app > nav > a {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #4fc08d;
+    transition: color 0.1s;
+}
+
+#app > nav > a:hover,
+#app > nav > a.current-comp {
+    color: #398a66;
 }
 
 /* button */
