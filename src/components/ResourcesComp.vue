@@ -1,9 +1,10 @@
 <script>
 import { Resource } from "../models/Resource.js";
 import ResourceDetails from "./ResourceDetails.vue";
+import AddNewResource from "./AddNewResource.vue";
 
 export default {
-    components: { ResourceDetails },
+    components: { ResourceDetails, AddNewResource },
     data() {
         return {
             resources: [
@@ -33,9 +34,18 @@ export default {
                     "http://www.mierswatercentre.com/"
                 ),
             ],
+            showAddResource: false,
         };
     },
     methods: {
+        addNewResourceToggle() {
+            this.showAddResource = !this.showAddResource;
+        },
+        addNewResourceHandler(title, details, url) {
+            const newResource = new Resource(title, details, url);
+            this.resources.push(newResource);
+            this.addNewResourceToggle();
+        },
         deleteResourceHandler(id) {
             const targetIndex = this.resources.indexOf((p) => p.id === id);
             this.resources.splice(targetIndex, 1);
@@ -51,4 +61,11 @@ export default {
         :key="resource.id"
         @delete-resource="deleteResourceHandler"
     ></ResourceDetails>
+    <button id="button-change3" @click="addNewResourceToggle">
+        Add new resource
+    </button>
+    <AddNewResource
+        v-if="showAddResource"
+        @add-new-resource="addNewResourceHandler"
+    />
 </template>

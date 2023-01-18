@@ -20,10 +20,6 @@ export default {
         };
     },
     methods: {
-        onTextChange(event) {
-            this.message = this.$refs.textInput1;
-        },
-
         addNewPlayerToggle() {
             this.showAddPlayer = !this.showAddPlayer;
         },
@@ -39,9 +35,6 @@ export default {
         },
 
         // callbacks
-        toggleSelectedHandler(id) {
-            console.log(id);
-        },
         deletePlayerHandler(id) {
             const targetIndex = this.players.indexOf((p) => p.id === id);
             this.players.splice(targetIndex, 1);
@@ -51,21 +44,18 @@ export default {
 </script>
 
 <template>
-    <input type="text" ref="textInput1" />
-
-    <button id="button-change3" @click="addNewPlayerToggle">
-        Add new player
-    </button>
-    <AddNewPlayer
-        v-if="this.showAddPlayer"
-        @add-new-player="addNewPlayerHandler"
-    />
-
     <PlayerDetails
         v-for="player in players"
         :player="player"
         :key="player.id"
         @toggle-selected="toggleSelectedHandler"
         @delete-player="deletePlayerHandler"
+    />
+    <button id="button-change3" @click="addNewPlayerToggle">
+        Add new player
+    </button>
+    <AddNewPlayer
+        v-if="this.showAddPlayer"
+        @add-new-player="addNewPlayerHandler"
     />
 </template>
