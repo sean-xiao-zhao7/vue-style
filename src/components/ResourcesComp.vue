@@ -47,8 +47,7 @@ export default {
             this.addNewResourceToggle();
         },
         deleteResourceHandler(id) {
-            const targetIndex = this.resources.indexOf((p) => p.id === id);
-            this.resources.splice(targetIndex, 1);
+            this.resources = this.resources.filter((r) => r.id !== id);
         },
     },
 };

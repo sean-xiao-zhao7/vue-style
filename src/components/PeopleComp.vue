@@ -36,8 +36,7 @@ export default {
 
         // callbacks
         deletePlayerHandler(id) {
-            const targetIndex = this.players.indexOf((p) => p.id === id);
-            this.players.splice(targetIndex, 1);
+            this.players = this.players.filter((p) => p.id !== id);
         },
     },
 };
