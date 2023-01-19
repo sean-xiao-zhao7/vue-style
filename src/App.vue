@@ -1,10 +1,10 @@
 <script>
-const compTitles = ["Learning resources", "Monster", "People"];
+const compTitles = ["Form", "Learning resources", "Monster", "People"];
 
 export default {
     data() {
         return {
-            currentComp: "resources-comp",
+            currentComp: "form-comp",
             currentCompTitle: compTitles[0],
         };
     },
@@ -24,19 +24,25 @@ export default {
     <nav>
         <a
             href="#"
-            @click="switchComp('resources-comp', 0)"
+            @click="switchComp('form-comp', 0)"
+            :class="{ 'current-comp': currentComp === 'form-comp' }"
+            >Form</a
+        >
+        <a
+            href="#"
+            @click="switchComp('resources-comp', 1)"
             :class="{ 'current-comp': currentComp === 'resources-comp' }"
             >Resources</a
         >
         <a
             href="#"
-            @click="switchComp('monster-comp', 1)"
+            @click="switchComp('monster-comp', 2)"
             :class="{ 'current-comp': currentComp === 'monster-comp' }"
             >Monster</a
         >
         <a
             href="#"
-            @click="switchComp('people-comp', 2)"
+            @click="switchComp('people-comp', 3)"
             :class="{ 'current-comp': currentComp === 'people-comp' }"
             >People</a
         >
@@ -87,7 +93,7 @@ header {
 /* nav */
 #app > nav {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     padding: 0 30rem;
     align-items: center;
     justify-items: center;
