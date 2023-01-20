@@ -11,7 +11,10 @@ export default {
         };
     },
     methods: {
-        submitHandler(event) {},
+        submitHandler(event) {
+            const postEnd = import.meta.env.VITE_POSTEND;
+            console.log(postEnd);
+        },
     },
 };
 </script>
