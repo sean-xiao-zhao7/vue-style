@@ -22,35 +22,33 @@ export default {
         <h1>{{ currentCompTitle }}</h1>
     </header>
     <nav>
-        <a
-            href="#"
+        <router-link
+            to="/form"
             @click="switchComp('form-comp', 0)"
             :class="{ 'current-comp': currentComp === 'form-comp' }"
-            >Form</a
+            >Form</router-link
         >
-        <a
-            href="#"
+        <router-link
+            to="/resources"
             @click="switchComp('resources-comp', 1)"
             :class="{ 'current-comp': currentComp === 'resources-comp' }"
-            >Resources</a
+            >Resources</router-link
         >
-        <a
-            href="#"
+        <router-link
+            to="/monster"
             @click="switchComp('monster-comp', 2)"
             :class="{ 'current-comp': currentComp === 'monster-comp' }"
-            >Monster</a
+            >Monster</router-link
         >
-        <a
-            href="#"
+        <router-link
+            to="/people"
             @click="switchComp('people-comp', 3)"
             :class="{ 'current-comp': currentComp === 'people-comp' }"
-            >People</a
+            >People</router-link
         >
     </nav>
     <section id="styling">
-        <KeepAlive>
-            <component :is="currentComp"></component>
-        </KeepAlive>
+        <router-view></router-view>
     </section>
 </template>
 
