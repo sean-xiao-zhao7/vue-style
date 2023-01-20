@@ -13,7 +13,22 @@ export default {
     methods: {
         submitHandler(event) {
             const postEnd = import.meta.env.VITE_POSTEND;
-            console.log(postEnd);
+            const url = postEnd + "formStudent.json";
+            const data = {
+                name: this.name,
+                age: this.age,
+                hear: this.hear,
+                interest: this.interest,
+                learn: this.learn,
+                term: this.term,
+            };
+            fetch(url, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
         },
     },
 };
