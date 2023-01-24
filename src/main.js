@@ -7,13 +7,18 @@ import MonsterComp from "./components/pages/MonsterComp.vue";
 import PeopleComp from "./components/pages/PeopleComp.vue";
 import ResourcesComp from "./components/pages/ResourcesComp.vue";
 import AnimationComp from "./components/pages/AnimationComp.vue";
+import VuexComp from "./components/pages/VuexComp.vue";
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
             path: "/",
-            redirect: "/form",
+            redirect: "/vuex",
+        },
+        {
+            path: "/vuex",
+            component: VuexComp,
         },
         {
             path: `/form`,
@@ -43,5 +48,7 @@ app.component("monster-comp", MonsterComp);
 app.component("people-comp", PeopleComp);
 app.component("resources-comp", ResourcesComp);
 app.component("animation-comp", AnimationComp);
+app.component("vuex-comp", VuexComp);
+
 app.use(router);
 app.mount("#app");

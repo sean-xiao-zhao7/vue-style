@@ -1,5 +1,6 @@
 <script>
 const compTitles = [
+    "Vuex",
     "Animation",
     "Form",
     "Learning resources",
@@ -10,7 +11,7 @@ const compTitles = [
 export default {
     data() {
         return {
-            currentComp: "animation-comp",
+            currentComp: "vuex-comp",
             currentCompTitle: compTitles[0],
         };
     },
@@ -29,32 +30,38 @@ export default {
     </header>
     <nav>
         <router-link
+            to="/vuex"
+            @click="switchComp('vuex-comp', 0)"
+            :class="{ 'current-comp': currentComp === 'vuex-comp' }"
+            >Vuex</router-link
+        >
+        <router-link
             to="/animation"
-            @click="switchComp('animation-comp', 0)"
+            @click="switchComp('animation-comp', 1)"
             :class="{ 'current-comp': currentComp === 'animation-comp' }"
             >Animation</router-link
         >
         <router-link
             to="/form"
-            @click="switchComp('form-comp', 1)"
+            @click="switchComp('form-comp', 2)"
             :class="{ 'current-comp': currentComp === 'form-comp' }"
             >Form</router-link
         >
         <router-link
             to="/resources"
-            @click="switchComp('resources-comp', 2)"
+            @click="switchComp('resources-comp', 3)"
             :class="{ 'current-comp': currentComp === 'resources-comp' }"
             >Resources</router-link
         >
         <router-link
             to="/monster"
-            @click="switchComp('monster-comp', 3)"
+            @click="switchComp('monster-comp', 4)"
             :class="{ 'current-comp': currentComp === 'monster-comp' }"
             >Monster</router-link
         >
         <router-link
             to="/people"
-            @click="switchComp('people-comp', 4)"
+            @click="switchComp('people-comp', 5)"
             :class="{ 'current-comp': currentComp === 'people-comp' }"
             >People</router-link
         >
@@ -103,7 +110,8 @@ header {
 /* nav */
 #app > nav {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, max-content);
+    grid-column-gap: 1.5rem;
     padding: 0 30rem;
     align-items: center;
     justify-items: center;
