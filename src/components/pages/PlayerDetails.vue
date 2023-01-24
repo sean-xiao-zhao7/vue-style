@@ -1,5 +1,5 @@
 <script>
-import { Player } from "../models/Player";
+import { Player } from "../../models/Player";
 
 export default {
     emits: ["toggle-selected", "delete-player"],

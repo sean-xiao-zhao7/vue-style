@@ -1,5 +1,5 @@
 <script>
-import { Resource } from "../models/Resource";
+import { Resource } from "../../models/Resource";
 
 export default {
     emits: ["delete-resource"],

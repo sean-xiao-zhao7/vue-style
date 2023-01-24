@@ -1,5 +1,5 @@
 <script>
-import { Resource } from "../models/Resource.js";
+import { Resource } from "../../models/Resource.js";
 import ResourceDetails from "./ResourceDetails.vue";
 import AddNewResource from "./AddNewResource.vue";
 

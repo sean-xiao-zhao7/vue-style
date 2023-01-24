@@ -1,5 +1,5 @@
 <script>
-import { Player } from "../models/Player.js";
+import { Player } from "../../models/Player.js";
 import PlayerDetails from "./PlayerDetails.vue";
 import AddNewPlayer from "./AddNewPlayer.vue";
 

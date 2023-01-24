@@ -2,11 +2,11 @@ import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 
-import FormComp from "./components/FormComp.vue";
-import MonsterComp from "./components/MonsterComp.vue";
-import PeopleComp from "./components/PeopleComp.vue";
-import ResourcesComp from "./components/ResourcesComp.vue";
-import AnimationComp from "./components/AnimationComp.vue";
+import FormComp from "./components/pages/FormComp.vue";
+import MonsterComp from "./components/pages/MonsterComp.vue";
+import PeopleComp from "./components/pages/PeopleComp.vue";
+import ResourcesComp from "./components/pages/ResourcesComp.vue";
+import AnimationComp from "./components/pages/AnimationComp.vue";
 
 const router = createRouter({
     history: createWebHistory(),
