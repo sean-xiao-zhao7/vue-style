@@ -1,10 +1,16 @@
 <script>
-const compTitles = ["Form", "Learning resources", "Monster", "People"];
+const compTitles = [
+    "Animation",
+    "Form",
+    "Learning resources",
+    "Monster",
+    "People",
+];
 
 export default {
     data() {
         return {
-            currentComp: "form-comp",
+            currentComp: "animation-comp",
             currentCompTitle: compTitles[0],
         };
     },
@@ -23,26 +29,32 @@ export default {
     </header>
     <nav>
         <router-link
+            to="/animation"
+            @click="switchComp('animation-comp', 0)"
+            :class="{ 'current-comp': currentComp === 'animation-comp' }"
+            >Animation</router-link
+        >
+        <router-link
             to="/form"
-            @click="switchComp('form-comp', 0)"
+            @click="switchComp('form-comp', 1)"
             :class="{ 'current-comp': currentComp === 'form-comp' }"
             >Form</router-link
         >
         <router-link
             to="/resources"
-            @click="switchComp('resources-comp', 1)"
+            @click="switchComp('resources-comp', 2)"
             :class="{ 'current-comp': currentComp === 'resources-comp' }"
             >Resources</router-link
         >
         <router-link
             to="/monster"
-            @click="switchComp('monster-comp', 2)"
+            @click="switchComp('monster-comp', 3)"
             :class="{ 'current-comp': currentComp === 'monster-comp' }"
             >Monster</router-link
         >
         <router-link
             to="/people"
-            @click="switchComp('people-comp', 3)"
+            @click="switchComp('people-comp', 4)"
             :class="{ 'current-comp': currentComp === 'people-comp' }"
             >People</router-link
         >
@@ -91,7 +103,7 @@ header {
 /* nav */
 #app > nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     padding: 0 30rem;
     align-items: center;
     justify-items: center;
