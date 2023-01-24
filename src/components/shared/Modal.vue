@@ -10,14 +10,14 @@ export default {
 </script>
 
 <template>
-    <Teleport to="body">
-        <div id="background">
-            <div>
-                <p><slot>Modal!</slot></p>
-                <button @click="toggle">Ok</button>
-            </div>
+    <div id="background">
+        <div>
+            <slot><h2>Modal!</h2></slot>
+            <button @click="toggle">
+                <slot name="buttonText">Close</slot>
+            </button>
         </div>
-    </Teleport>
+    </div>
 </template>
 
 <style scoped>
