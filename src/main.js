@@ -9,14 +9,16 @@ import PeopleComp from "./components/pages/PeopleComp.vue";
 import ResourcesComp from "./components/pages/ResourcesComp.vue";
 import AnimationComp from "./components/pages/AnimationComp.vue";
 import VuexComp from "./components/pages/VuexComp.vue";
+import CoachPage from "./components/pages/CoachPage.vue";
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
             path: "/",
-            redirect: "/vuex",
+            redirect: "/coach",
         },
+        { path: "/coach", component: CoachPage },
         {
             path: "/vuex",
             component: VuexComp,
@@ -56,8 +58,13 @@ const store = createStore({
         },
     },
     getters: {
-        finalCounter(state, getters) {
+        finalCounter(state, _) {
             return state.counter * 2;
+        },
+    },
+    actions: {
+        incrementAction(context) {
+            context.commit("increment");
         },
     },
 });
@@ -69,6 +76,7 @@ app.component("people-comp", PeopleComp);
 app.component("resources-comp", ResourcesComp);
 app.component("animation-comp", AnimationComp);
 app.component("vuex-comp", VuexComp);
+app.component("coach-page", CoachPage);
 
 app.use(router);
 app.use(store);

@@ -6,13 +6,14 @@ const compTitles = [
     "Learning resources",
     "Monster",
     "People",
+    "Coach",
 ];
 
 export default {
     data() {
         return {
-            currentComp: "vuex-comp",
-            currentCompTitle: compTitles[0],
+            currentComp: "coach-page",
+            currentCompTitle: compTitles[6],
         };
     },
     methods: {
@@ -28,44 +29,52 @@ export default {
     <header>
         <h1>{{ currentCompTitle }}</h1>
     </header>
-    <nav>
-        <router-link
-            to="/vuex"
-            @click="switchComp('vuex-comp', 0)"
-            :class="{ 'current-comp': currentComp === 'vuex-comp' }"
-            >Vuex</router-link
-        >
-        <router-link
-            to="/animation"
-            @click="switchComp('animation-comp', 1)"
-            :class="{ 'current-comp': currentComp === 'animation-comp' }"
-            >Animation</router-link
-        >
-        <router-link
-            to="/form"
-            @click="switchComp('form-comp', 2)"
-            :class="{ 'current-comp': currentComp === 'form-comp' }"
-            >Form</router-link
-        >
-        <router-link
-            to="/resources"
-            @click="switchComp('resources-comp', 3)"
-            :class="{ 'current-comp': currentComp === 'resources-comp' }"
-            >Resources</router-link
-        >
-        <router-link
-            to="/monster"
-            @click="switchComp('monster-comp', 4)"
-            :class="{ 'current-comp': currentComp === 'monster-comp' }"
-            >Monster</router-link
-        >
-        <router-link
-            to="/people"
-            @click="switchComp('people-comp', 5)"
-            :class="{ 'current-comp': currentComp === 'people-comp' }"
-            >People</router-link
-        >
-    </nav>
+    <div class="nav-container">
+        <nav>
+            <router-link
+                to="/coach"
+                @click="switchComp('coach-comp', 6)"
+                :class="{ 'current-comp': currentComp === 'coach-page' }"
+                >Coach</router-link
+            >
+            <router-link
+                to="/vuex"
+                @click="switchComp('vuex-comp', 0)"
+                :class="{ 'current-comp': currentComp === 'vuex-comp' }"
+                >Vuex</router-link
+            >
+            <router-link
+                to="/animation"
+                @click="switchComp('animation-comp', 1)"
+                :class="{ 'current-comp': currentComp === 'animation-comp' }"
+                >Animation</router-link
+            >
+            <router-link
+                to="/form"
+                @click="switchComp('form-comp', 2)"
+                :class="{ 'current-comp': currentComp === 'form-comp' }"
+                >Form</router-link
+            >
+            <router-link
+                to="/resources"
+                @click="switchComp('resources-comp', 3)"
+                :class="{ 'current-comp': currentComp === 'resources-comp' }"
+                >Resources</router-link
+            >
+            <router-link
+                to="/monster"
+                @click="switchComp('monster-comp', 4)"
+                :class="{ 'current-comp': currentComp === 'monster-comp' }"
+                >Monster</router-link
+            >
+            <router-link
+                to="/people"
+                @click="switchComp('people-comp', 5)"
+                :class="{ 'current-comp': currentComp === 'people-comp' }"
+                >People</router-link
+            >
+        </nav>
+    </div>
     <section id="styling">
         <router-view></router-view>
     </section>
@@ -108,24 +117,31 @@ header {
 }
 
 /* nav */
-#app > nav {
+.nav-container {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#app nav {
     display: grid;
-    grid-template-columns: repeat(6, max-content);
+    grid-template-columns: repeat(7, max-content);
     grid-column-gap: 1.5rem;
-    padding: 0 30rem;
     align-items: center;
     justify-items: center;
 }
 
-#app > nav > a {
+#app nav > a {
     font-size: 1.4rem;
     text-decoration: none;
     color: #4fc08d;
     transition: color 0.1s;
 }
 
-#app > nav > a:hover,
-#app > nav > a.current-comp {
+#app nav > a:hover,
+#app nav > a.current-comp {
     color: #398a66;
 }
 
