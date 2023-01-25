@@ -50,6 +50,16 @@ const store = createStore({
             counter: 0,
         };
     },
+    mutations: {
+        increment(state) {
+            state.counter += 1;
+        },
+    },
+    getters: {
+        finalCounter(state, getters) {
+            return state.counter * 2;
+        },
+    },
 });
 
 const app = createApp(App);
