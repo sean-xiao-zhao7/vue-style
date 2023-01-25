@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import { createStore } from "vuex";
 import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 
@@ -42,6 +43,15 @@ const router = createRouter({
         },
     ],
 });
+
+const store = createStore({
+    state() {
+        return {
+            counter: 0,
+        };
+    },
+});
+
 const app = createApp(App);
 app.component("form-comp", FormComp);
 app.component("monster-comp", MonsterComp);
@@ -51,4 +61,5 @@ app.component("animation-comp", AnimationComp);
 app.component("vuex-comp", VuexComp);
 
 app.use(router);
+app.use(store);
 app.mount("#app");
