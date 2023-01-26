@@ -1,6 +1,5 @@
 import { createApp } from "vue";
 import { createStore } from "vuex";
-import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 
 import FormComp from "./components/pages/FormComp.vue";
@@ -11,40 +10,7 @@ import AnimationComp from "./components/pages/AnimationComp.vue";
 import VuexComp from "./components/pages/VuexComp.vue";
 import CoachPage from "./components/pages/CoachPage.vue";
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {
-            path: "/",
-            redirect: "/coach",
-        },
-        { path: "/coach", component: CoachPage },
-        {
-            path: "/vuex",
-            component: VuexComp,
-        },
-        {
-            path: `/form`,
-            component: FormComp,
-        },
-        {
-            path: `/monster`,
-            component: MonsterComp,
-        },
-        {
-            path: `/people`,
-            component: PeopleComp,
-        },
-        {
-            path: `/resources`,
-            component: ResourcesComp,
-        },
-        {
-            path: `/animation`,
-            component: AnimationComp,
-        },
-    ],
-});
+import router from "./router";
 
 const store = createStore({
     state() {
