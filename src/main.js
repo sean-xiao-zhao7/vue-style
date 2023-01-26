@@ -1,5 +1,4 @@
 import { createApp } from "vue";
-import { createStore } from "vuex";
 import App from "./App.vue";
 
 import FormComp from "./components/pages/FormComp.vue";
@@ -11,29 +10,7 @@ import VuexComp from "./components/pages/VuexComp.vue";
 import CoachPage from "./components/pages/CoachPage.vue";
 
 import router from "./router";
-
-const store = createStore({
-    state() {
-        return {
-            counter: 0,
-        };
-    },
-    mutations: {
-        increment(state) {
-            state.counter += 1;
-        },
-    },
-    getters: {
-        finalCounter(state, _) {
-            return state.counter * 2;
-        },
-    },
-    actions: {
-        incrementAction(context) {
-            context.commit("increment");
-        },
-    },
-});
+import store from "./vuex/store";
 
 const app = createApp(App);
 app.component("form-comp", FormComp);

@@ -6,11 +6,11 @@ import ResourcesComp from "./components/pages/ResourcesComp.vue";
 import AnimationComp from "./components/pages/AnimationComp.vue";
 import VuexComp from "./components/pages/VuexComp.vue";
 import CoachPage from "./components/pages/CoachPage.vue";
-import CoachList from "./components/pages/coach/coach-list/CoachList.vue";
-import CoachDetails from "./components/pages/coach/coach-list/CoachDetails.vue";
-import AddCoach from "./components/pages/coach/coach-list/AddCoach.vue";
-import AddRequest from "./components/pages/coach/requests/AddRequest.vue";
-import RequestList from "./components/pages/coach/requests/RequestList.vue";
+import CoachList from "./components/pages/coach/CoachList.vue";
+import CoachDetails from "./components/pages/coach/CoachDetails.vue";
+import AddCoach from "./components/pages/coach/AddCoach.vue";
+import AddRequest from "./components/pages/coach/AddRequest.vue";
+import RequestList from "./components/pages/coach/RequestList.vue";
 
 const router = createRouter({
     history: createWebHistory(),
