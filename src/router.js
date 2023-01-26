@@ -23,14 +23,14 @@ const router = createRouter({
             path: "/coach",
             component: CoachPage,
             children: [
-                { path: "/list", component: CoachList },
+                { path: "list", component: CoachList },
                 {
-                    path: "/list/:id",
+                    path: "list/:id",
                     component: CoachDetails,
                     children: [{ path: "contact", component: AddRequest }],
                 },
-                { path: "/register", component: AddCoach },
-                { path: "/requests", component: RequestList },
+                { path: "register", component: AddCoach },
+                { path: "requests", component: RequestList },
             ],
         },
         {
