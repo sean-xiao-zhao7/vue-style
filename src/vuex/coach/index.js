@@ -19,7 +19,6 @@ export default {
     mutations: {},
     getters: {
         coachList(state) {
-            console.log('hi')
             return state.coachList;
         },
     },

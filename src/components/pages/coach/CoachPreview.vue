@@ -10,3 +10,9 @@ export default {
         <p>${{ rate }} / hour</p>
     </div>
 </template>
+
+<style scoped>
+div {
+    border-top: solid 1px white;
+}
+</style>
