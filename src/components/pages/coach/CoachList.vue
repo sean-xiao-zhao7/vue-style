@@ -1,5 +1,8 @@
 <script>
+import CoachPreview from "./CoachPreview.vue";
+
 export default {
+    components: { "coach-preview": CoachPreview },
     computed: {
         coachList() {
             return this.$store.getters["coach/coachList"];
@@ -20,7 +23,13 @@ export default {
             </button>
         </div>
         <ul>
-            <li>List of coaches</li>
+            <li v-for="coach in coachList" :key="coach.id">
+                <coach-preview
+                    :name="coach.name"
+                    :summary="coach.summary"
+                    :rate="coach.rate"
+                ></coach-preview>
+            </li>
         </ul>
     </div>
 </template>
