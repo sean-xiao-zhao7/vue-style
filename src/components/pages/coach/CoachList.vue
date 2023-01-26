@@ -1,3 +1,13 @@
+<script>
+export default {
+    computed: {
+        coachList() {
+            return this.$store.getters["coach/coachList"];
+        },
+    },
+};
+</script>
+
 <template>
     <div>Filter coaches</div>
     <div>

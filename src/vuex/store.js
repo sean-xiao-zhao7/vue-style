@@ -1,6 +1,8 @@
 import { createStore } from "vuex";
+import coachModule from "./coach/index";
 
 const store = createStore({
+    modules: coachModule,
     state() {
         return {
             counter: 0,
