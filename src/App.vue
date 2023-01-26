@@ -125,7 +125,7 @@ header {
     justify-content: center;
 }
 
-#app nav {
+#app .nav-container > nav {
     display: grid;
     grid-template-columns: repeat(7, max-content);
     grid-column-gap: 1.5rem;
@@ -133,15 +133,15 @@ header {
     justify-items: center;
 }
 
-#app nav > a {
+#app .nav-container > nav > a {
     font-size: 1.4rem;
     text-decoration: none;
     color: #4fc08d;
     transition: color 0.1s;
 }
 
-#app nav > a:hover,
-#app nav > a.current-comp {
+#app .nav-container > nav > a:hover,
+#app .nav-container > nav > a.current-comp {
     color: #398a66;
 }
 
