@@ -1,4 +1,6 @@
 <script>
+import { Coach } from "../../../models/Coach";
+
 export default {
     data() {
         return {
@@ -11,7 +13,19 @@ export default {
         };
     },
     methods: {
-        submit() {},
+        submit() {
+            this.$store.dispatch(
+                "coach/addCoachAction",
+                new Coach(
+                    this.name,
+                    this.phone,
+                    this.email,
+                    this.areas,
+                    this.summary,
+                    this.rate
+                )
+            );
+        },
     },
 };
 </script>

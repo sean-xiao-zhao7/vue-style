@@ -16,7 +16,11 @@ export default {
             ],
         };
     },
-    mutations: {},
+    mutations: {
+        addCoachMutation(state, payload) {
+            state.coachList.push(payload);
+        },
+    },
     getters: {
         coachList(state) {
             return state.coachList;
@@ -25,5 +29,9 @@ export default {
             return state.coachList.find((coach) => coach.id === id);
         },
     },
-    actions: {},
+    actions: {
+        addCoachAction(context, coach) {
+            context.commit("addCoachMutation", coach);
+        },
+    },
 };
