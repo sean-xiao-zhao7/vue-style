@@ -95,6 +95,19 @@ body {
     margin: 0;
 }
 
+a,
+button {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #4fc08d;
+    transition: color 0.1s;
+}
+
+a:hover,
+a.current-comp {
+    color: #398a66;
+}
+
 header {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     margin: 3rem;
@@ -133,25 +146,12 @@ header {
     justify-items: center;
 }
 
-#app .nav-container > nav > a {
-    font-size: 1.4rem;
-    text-decoration: none;
-    color: #4fc08d;
-    transition: color 0.1s;
-}
-
-#app .nav-container > nav > a:hover,
-#app .nav-container > nav > a.current-comp {
-    color: #398a66;
-}
-
 /* button */
 button {
     background-color: #4fc08d;
     border: 0;
     border-radius: 15px;
     color: white;
-    font-size: 1.2rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
 }

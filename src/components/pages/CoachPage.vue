@@ -29,11 +29,4 @@ nav > ul {
 nav li {
     list-style: none;
 }
-nav li a {
-    text-decoration: none;
-}
-nav li a,
-nav li a:visited {
-    color: #4fc08d;
-}
 </style>

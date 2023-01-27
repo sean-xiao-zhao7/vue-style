@@ -28,6 +28,7 @@ export default {
                     :name="coach.name"
                     :summary="coach.summary"
                     :rate="coach.rate"
+                    :id="coach.id"
                 ></coach-preview>
             </li>
         </ul>
