@@ -21,6 +21,9 @@ export default {
         coachList(state) {
             return state.coachList;
         },
+        getSingleCoach: (state) => (id) => {
+            return state.coachList.find((coach) => coach.id === id);
+        },
     },
     actions: {},
 };

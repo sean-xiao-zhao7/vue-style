@@ -1,28 +1,34 @@
 <script>
+import { mapGetters } from "vuex";
+
 export default {
+    props: ["id"],
     data() {
         return {
-            id: this.$route.params.id,
+            coach: null,
         };
     },
     created() {
-        this.$watch(
-            () => this.$route.params,
-            (toParams, prevParams) => {
-                this.id = toParams.id;
-            }
-        );
+        this.coach = this.getSingleCoach(this.id);
     },
     computed: {
         contactLink() {
             return "/coach/list/" + this.id + "/contact";
         },
+        ...mapGetters({ getSingleCoach: "coach/getSingleCoach" }),
     },
 };
 </script>
 <template>
     <div>
         <section id="coachDetails">
+            <div>
+                <h3>{{ coach.name }}</h3>
+                <p>{{ coach.email }}</p>
+                <p>{{ coach.phone }}</p>
+                <p>{{ coach.summary }}</p>
+                <p>${{ coach.rate }} / hour</p>
+            </div>
             <section id="links">
                 <router-link :to="contactLink">Contact</router-link>
                 <router-link :to="contactLink">Go Back</router-link>
