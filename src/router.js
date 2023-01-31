@@ -1,3 +1,4 @@
+import { defineAsyncComponent } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import FormComp from "./components/pages/FormComp.vue";
 import MonsterComp from "./components/pages/MonsterComp.vue";
@@ -6,11 +7,22 @@ import ResourcesComp from "./components/pages/ResourcesComp.vue";
 import AnimationComp from "./components/pages/AnimationComp.vue";
 import VuexComp from "./components/pages/VuexComp.vue";
 import CoachPage from "./components/pages/CoachPage.vue";
-import CoachList from "./components/pages/coach/CoachList.vue";
-import CoachDetails from "./components/pages/coach/CoachDetails.vue";
-import AddCoach from "./components/pages/coach/AddCoach.vue";
-import AddRequest from "./components/pages/coach/AddRequest.vue";
-import RequestList from "./components/pages/coach/RequestList.vue";
+
+const CoachList = defineAsyncComponent(() =>
+    import("./components/pages/coach/CoachList.vue")
+);
+const CoachDetails = defineAsyncComponent(() =>
+    import("./components/pages/coach/CoachDetails.vue")
+);
+const AddCoach = defineAsyncComponent(() =>
+    import("./components/pages/coach/AddCoach.vue")
+);
+const AddRequest = defineAsyncComponent(() =>
+    import("./components/pages/coach/AddRequest.vue")
+);
+const RequestList = defineAsyncComponent(() =>
+    import("./components/pages/coach/RequestList.vue")
+);
 
 const router = createRouter({
     history: createWebHistory(),
