@@ -25,6 +25,7 @@ export default {
                     this.rate
                 )
             );
+            this.$router.push("/coach/list");
         },
     },
 };
@@ -60,11 +61,26 @@ export default {
             />
             <div>
                 Art
-                <input name="areas" type="checkbox" v-model="areas" />
+                <input
+                    name="areas"
+                    type="checkbox"
+                    v-model="areas"
+                    value="art"
+                />
                 Tech
-                <input name="areas" type="checkbox" v-model="areas" />
+                <input
+                    name="areas"
+                    type="checkbox"
+                    v-model="areas"
+                    value="tech"
+                />
                 Craft
-                <input name="areas" type="checkbox" v-model="areas" />
+                <input
+                    name="areas"
+                    type="checkbox"
+                    v-model="areas"
+                    value="craft"
+                />
             </div>
             <button type="submit">Submit</button>
         </div>
