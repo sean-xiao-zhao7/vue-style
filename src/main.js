@@ -1,18 +1,34 @@
-import { createApp } from "vue";
+import { createApp, defineAsyncComponent } from "vue";
 import App from "./App.vue";
-
-import FormComp from "./components/pages/FormComp.vue";
-import MonsterComp from "./components/pages/MonsterComp.vue";
-import PeopleComp from "./components/pages/PeopleComp.vue";
-import ResourcesComp from "./components/pages/ResourcesComp.vue";
-import AnimationComp from "./components/pages/AnimationComp.vue";
-import VuexComp from "./components/pages/VuexComp.vue";
-import CoachPage from "./components/pages/CoachPage.vue";
 
 import router from "./router";
 import store from "./vuex/store";
 
 const app = createApp(App);
+
+// lazy load
+const FormComp = defineAsyncComponent(() =>
+    import("./components/pages/FormComp.vue")
+);
+const PeopleComp = defineAsyncComponent(() =>
+    import("./components/pages/PeopleComp.vue")
+);
+const MonsterComp = defineAsyncComponent(() =>
+    import("./components/pages/MonsterComp.vue")
+);
+const ResourcesComp = defineAsyncComponent(() =>
+    import("./components/pages/ResourcesComp.vue")
+);
+const AnimationComp = defineAsyncComponent(() =>
+    import("./components/pages/AnimationComp.vue")
+);
+const VuexComp = defineAsyncComponent(() =>
+    import("./components/pages/VuexComp.vue")
+);
+const CoachPage = defineAsyncComponent(() =>
+    import("./components/pages/CoachPage.vue")
+);
+
 app.component("form-comp", FormComp);
 app.component("monster-comp", MonsterComp);
 app.component("people-comp", PeopleComp);

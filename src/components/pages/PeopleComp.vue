@@ -48,7 +48,6 @@ export default {
             v-for="player in players"
             :player="player"
             :key="player.id"
-            @toggle-selected="toggleSelectedHandler"
             @delete-player="deletePlayerHandler"
         />
         <button id="button-change3" @click="addNewPlayerToggle">
