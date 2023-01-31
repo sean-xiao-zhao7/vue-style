@@ -14,8 +14,10 @@ export default {
 </script>
 
 <template>
-    <button @click="addOne">Increment</button>
     <div>
-        {{ counter }}
+        <button @click="addOne">Increment</button>
+        <div>
+            {{ counter }}
+        </div>
     </div>
 </template>

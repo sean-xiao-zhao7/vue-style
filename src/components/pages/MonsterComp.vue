@@ -68,20 +68,24 @@ export default {
 </script>
 
 <template>
-    <button id="button-change" @click="attack">Attack</button>
-    <button id="button-change1" @click="specialAttack">Special attack</button>
-    <div id="health-area">
-        <div>
-            <h1>Monster</h1>
-            <div :style="monsterHealthStyle" class="health-bar"></div>
+    <div>
+        <button id="button-change" @click="attack">Attack</button>
+        <button id="button-change1" @click="specialAttack">
+            Special attack
+        </button>
+        <div id="health-area">
+            <div>
+                <h1>Monster</h1>
+                <div :style="monsterHealthStyle" class="health-bar"></div>
+            </div>
+            <div>
+                <h1>Human</h1>
+                <div :style="playerHealthStyle" class="health-bar"></div>
+            </div>
         </div>
-        <div>
-            <h1>Human</h1>
-            <div :style="playerHealthStyle" class="health-bar"></div>
+        <div id="message-area">
+            {{ message }}
+            <p v-if="playerHealth <= 0">Human is dead.</p>
         </div>
-    </div>
-    <div id="message-area">
-        {{ message }}
-        <p v-if="playerHealth <= 0">Human is dead.</p>
     </div>
 </template>

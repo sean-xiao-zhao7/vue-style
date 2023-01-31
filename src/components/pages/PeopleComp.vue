@@ -43,18 +43,20 @@ export default {
 </script>
 
 <template>
-    <PlayerDetails
-        v-for="player in players"
-        :player="player"
-        :key="player.id"
-        @toggle-selected="toggleSelectedHandler"
-        @delete-player="deletePlayerHandler"
-    />
-    <button id="button-change3" @click="addNewPlayerToggle">
-        Add new player
-    </button>
-    <AddNewPlayer
-        v-if="this.showAddPlayer"
-        @add-new-player="addNewPlayerHandler"
-    />
+    <div>
+        <PlayerDetails
+            v-for="player in players"
+            :player="player"
+            :key="player.id"
+            @toggle-selected="toggleSelectedHandler"
+            @delete-player="deletePlayerHandler"
+        />
+        <button id="button-change3" @click="addNewPlayerToggle">
+            Add new player
+        </button>
+        <AddNewPlayer
+            v-if="this.showAddPlayer"
+            @add-new-player="addNewPlayerHandler"
+        />
+    </div>
 </template>

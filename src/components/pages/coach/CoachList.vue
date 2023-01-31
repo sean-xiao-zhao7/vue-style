@@ -12,26 +12,28 @@ export default {
 </script>
 
 <template>
-    <div>Filter coaches</div>
     <div>
-        <div id="controls">
-            <button>Refresh</button>
-            <button>
-                <router-link to="/coach/register"
-                    >Sign up as a coach</router-link
-                >
-            </button>
+        <div>Filter coaches</div>
+        <div>
+            <div id="controls">
+                <button>Refresh</button>
+                <button>
+                    <router-link to="/coach/register"
+                        >Sign up as a coach</router-link
+                    >
+                </button>
+            </div>
+            <ul>
+                <li v-for="coach in coachList" :key="coach.id">
+                    <coach-preview
+                        :name="coach.name"
+                        :summary="coach.summary"
+                        :rate="coach.rate"
+                        :id="coach.id"
+                    ></coach-preview>
+                </li>
+            </ul>
         </div>
-        <ul>
-            <li v-for="coach in coachList" :key="coach.id">
-                <coach-preview
-                    :name="coach.name"
-                    :summary="coach.summary"
-                    :rate="coach.rate"
-                    :id="coach.id"
-                ></coach-preview>
-            </li>
-        </ul>
     </div>
 </template>
 

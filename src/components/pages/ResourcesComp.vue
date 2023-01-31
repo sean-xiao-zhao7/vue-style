@@ -54,17 +54,19 @@ export default {
 </script>
 
 <template>
-    <ResourceDetails
-        v-for="resource in resources"
-        :resource="resource"
-        :key="resource.id"
-        @delete-resource="deleteResourceHandler"
-    ></ResourceDetails>
-    <button id="button-change3" @click="addNewResourceToggle">
-        Add new resource
-    </button>
-    <AddNewResource
-        v-if="showAddResource"
-        @add-new-resource="addNewResourceHandler"
-    />
+    <div>
+        <ResourceDetails
+            v-for="resource in resources"
+            :resource="resource"
+            :key="resource.id"
+            @delete-resource="deleteResourceHandler"
+        ></ResourceDetails>
+        <button id="button-change3" @click="addNewResourceToggle">
+            Add new resource
+        </button>
+        <AddNewResource
+            v-if="showAddResource"
+            @add-new-resource="addNewResourceHandler"
+        />
+    </div>
 </template>

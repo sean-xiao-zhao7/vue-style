@@ -76,7 +76,11 @@ export default {
         </nav>
     </div>
     <section id="styling">
-        <router-view></router-view>
+        <router-view v-slot="slotProps">
+            <transition name="route" mode="out-in">
+                <component :is="slotProps.Component"></component>
+            </transition>
+        </router-view>
     </section>
 </template>
 
@@ -175,6 +179,22 @@ button.delete {
 button:active,
 button:hover {
     transform: translateX(1px) translateY(1px);
+}
+
+/* route transition */
+.route-enter-from,
+.route-leave-to {
+    opacity: 0;
+}
+
+.route-enter-active,
+.route-leave-active {
+    transition: opacity 0.1s ease-out;
+}
+
+.route-enter-to,
+.route-leave-from {
+    opacity: 1;
 }
 
 /* form inputs */

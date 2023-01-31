@@ -34,8 +34,8 @@ export default {
                 <router-link :to="contactLink">Go Back</router-link>
             </section>
         </section>
+        <router-view></router-view>
     </div>
-    <router-view></router-view>
 </template>
 <style scoped>
 #coachDetails {
