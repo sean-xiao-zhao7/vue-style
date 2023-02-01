@@ -1,7 +1,3 @@
-<script>
-export default {};
-</script>
-
 <template>
     <div id="coach-page">
         <nav>

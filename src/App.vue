@@ -1,4 +1,5 @@
 <script>
+import { ref } from "vue";
 const compTitles = [
     "Vuex",
     "Animation",
@@ -10,17 +11,20 @@ const compTitles = [
 ];
 
 export default {
-    data() {
-        return {
-            currentComp: "coach-page",
-            currentCompTitle: compTitles[6],
+    setup() {
+        const currentComp = ref("coach-page");
+        const currentCompTitle = ref(compTitles[6]);
+
+        const switchComp = (nextComp, titleIndex) => {
+            currentComp.value = nextComp;
+            currentCompTitle.value = compTitles[titleIndex];
         };
-    },
-    methods: {
-        switchComp(nextComp, titleIndex) {
-            this.currentComp = nextComp;
-            this.currentCompTitle = compTitles[titleIndex];
-        },
+
+        return {
+            currentComp,
+            currentCompTitle,
+            switchComp,
+        };
     },
 };
 </script>
